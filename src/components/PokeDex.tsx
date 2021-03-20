@@ -21,6 +21,22 @@ const PokeDex: React.FC = () => {
   const [callSWOT, setSwot] = useState({} as pokemonSWOT);
   const [callError, setError] = useState(0);
 
+  const typeStyle = () => {
+    const pokemonType = callPokemon.types[0].type.name;
+    switch (pokemonType) {
+      case 'fire':
+        return 'bg-red-300';
+      case 'water':
+        return 'bg-blue-300';
+      case 'ground':
+        return 'bg-yellow-400';
+      case 'grass':
+        return 'bg-green-400';
+      default:
+        return 'bg-green-200';
+    }
+  };
+
   useEffect(() => {
     const defaultSearch = { SearchPokemon: 'Charizard' };
     onSearchSubmit(defaultSearch);
@@ -80,7 +96,7 @@ const PokeDex: React.FC = () => {
       return (
         <div className="bg-white rounded-lg overflow-hidden shadow-md object-center">
           <img src={callPokemon.sprites.front_default} alt="pokemon" className="object-contain h-48 w-full ..."></img>
-          <div className="p-6 text-center bg-blue-300">
+          <div className={`p-6 text-center ${typeStyle()}`}>
             <h4 className="font-semibold text-lg">{callPokemon.name}</h4>
             <div>ID: {callPokemon.id}</div>
             <div>Height: {callPokemon.height}</div>
