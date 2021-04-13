@@ -1,5 +1,6 @@
 {
   "name": "pokedex",
+  "homepage": "https://hartofcode.com/projects/pokedex",
   "version": "0.1.0",
   "engines": {
     "node": "15.x"
